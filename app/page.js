@@ -20,10 +20,11 @@ export default function Home() {
     if (inputValue.trim() !== "") {
       
       addMessage(messages.length + 1, inputValue, false);
-     // addMessage(3, "Hello! How can I help you today?", true);
+     
       //sendToLlama(messages.length,inputValue.trim(),addMessage);
       setInputValue("");
       //addMessage(messages.length+1, sendToLlama(inputValue.trim()), true)
+     // addMessage(3, "Hello! How can I help you today?", true);
     }
   };
 
@@ -32,12 +33,17 @@ export default function Home() {
       handleSendClick();
     }
   };
-
+  
   useEffect(() => {
     //.addMessage(1, "Hey!", false);
-    addMessage(1, "Hello! How can I help you today?", true);
+    console.log(messages);
+    if(messages.length == 0 ){  addMessage(1, "Hello! How can I help you today?", true);}
+    if(messages.length > 0 && messages[messages.length-1].isBot == false) {
+      sendToLlama(messages.length,inputValue.trim(),addMessage);
+    }
+   
     
-  }, []);
+  }, [messages]);
 
   useEffect(() => {
     if (chatBoxBodyRef.current) {
