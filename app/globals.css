@@ -19,9 +19,10 @@ body {
   background-color: #fff;
   padding: 2rem;
   border-radius: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 
 }
-
 input[type="text"] {
   padding: 1rem;
   border: 1px solid #d6d6d6;
@@ -37,14 +38,21 @@ button[type="submit"] {
   width: 5rem;
 }
 
+.chat-box-body {
+  height: 20rem;
+  overflow-y: auto;
+  
+}
+
 .chat-box-message {
-  background-color: rgb(197, 197, 197);
+  background-color: rgb(82, 82, 82);
   max-width: 15rem;
   border-radius: 0.5rem;
   justify-content: center;
   align-items: center;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
+  clear:both;
   margin-top: 0.2rem;
   margin-bottom: 1rem;
   float: right;
@@ -52,4 +60,9 @@ button[type="submit"] {
 
 .chat-box-message.ai {
   float:left;
+  
+}
+
+.message-text {
+  color: white;
 }
