@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 import Message from "./Message";
 import { useEffect, useState, useRef } from "react";
 import { useAmp} from "next/amp";
+import { sendToLlama } from "./api/route";
 
 export default function Home() {
   const [messages, setMessages] = useState([]);
@@ -17,8 +18,12 @@ export default function Home() {
 
   const handleSendClick = () => {
     if (inputValue.trim() !== "") {
+      
       addMessage(messages.length + 1, inputValue, false);
+     // addMessage(3, "Hello! How can I help you today?", true);
+      //sendToLlama(messages.length,inputValue.trim(),addMessage);
       setInputValue("");
+      //addMessage(messages.length+1, sendToLlama(inputValue.trim()), true)
     }
   };
 
@@ -29,8 +34,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    addMessage(1, "Hey!", false);
-    addMessage(2, "Hello! How can I help you today?", true);
+    //.addMessage(1, "Hey!", false);
+    addMessage(1, "Hello! How can I help you today?", true);
+    
   }, []);
 
   useEffect(() => {
