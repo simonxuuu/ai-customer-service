@@ -31,11 +31,12 @@ export async function sendToLlama(messagesLength,clientMessage,addMessageReferen
 }
 
 export async function getGroqChatCompletion(data) {
+  console.log(data);
   return groq.chat.completions.create({
     messages: [
       {
         role: "user",
-        content: data,
+        content: data
       },
     ],
     model: "llama3-8b-8192",

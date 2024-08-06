@@ -22,7 +22,7 @@ export default function Home() {
       addMessage(messages.length + 1, inputValue, false);
      
       //sendToLlama(messages.length,inputValue.trim(),addMessage);
-      setInputValue("");
+      
       //addMessage(messages.length+1, sendToLlama(inputValue.trim()), true)
      // addMessage(3, "Hello! How can I help you today?", true);
     }
@@ -40,6 +40,7 @@ export default function Home() {
     if(messages.length == 0 ){  addMessage(1, "Hello! How can I help you today?", true);}
     if(messages.length > 0 && messages[messages.length-1].isBot == false) {
       sendToLlama(messages.length,inputValue.trim(),addMessage);
+      setInputValue("");
     }
    
     
