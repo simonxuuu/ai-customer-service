@@ -1,3 +1,13 @@
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -15,19 +25,27 @@ body {
 
 .chat-box {
   display: flex;
+  width: 20rem;
   flex-direction: column;
   background-color: #fff;
   padding: 2rem;
   border-radius: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-
+  animation: popIn 0.5s ease-out;
+  transition: all 0.3s ease;
 }
+
 input[type="text"] {
   padding: 1rem;
   border: 1px solid #d6d6d6;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 button[type="submit"] {
@@ -36,12 +54,21 @@ button[type="submit"] {
   padding: 1rem;
   border: 1px solid #d6d6d6;
   width: 5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #f0f0f0;
 }
 
 .chat-box-body {
   height: 20rem;
   overflow-y: auto;
-  
+  padding-right: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
 }
 
 .chat-box-message {
@@ -50,19 +77,38 @@ button[type="submit"] {
   border-radius: 0.5rem;
   justify-content: center;
   align-items: center;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  clear:both;
+  padding: 0.6rem;
+  clear: both;
   margin-top: 0.2rem;
   margin-bottom: 1rem;
   float: right;
+  animation: fadeIn 0.5s ease-out;
+  transition: all 0.3s ease;
 }
 
 .chat-box-message.ai {
-  float:left;
-  
+  float: left;
+  background-color: #4a4a4a;
 }
 
 .message-text {
   color: white;
 }
+
+.minimize-button {
+  float:right;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}
+
+.minimize-button:hover {
+  transform: scale(1.1);
+}
+
+
